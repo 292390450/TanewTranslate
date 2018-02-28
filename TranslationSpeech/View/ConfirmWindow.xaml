@@ -1,0 +1,40 @@
+﻿<Window x:Class="TranslationSpeech.View.ConfirmWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TranslationSpeech.View"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        mc:Ignorable="d"
+        Title="ConfirmWindow" Height="90" Width="300" WindowStartupLocation="CenterScreen" Style="{DynamicResource WindowStyle}"
+         ResizeMode="NoResize" Icon="../Image/planet_earth_128px_1202602_easyicon.net.ico">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    <GradientStop Color="#FF52EDC7" Offset="0"/>
+                    <GradientStop Color="#FF5AC8FB" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <StackPanel>
+                <StackPanel Background="White" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown">
+                    <telerik:RadButton  HorizontalAlignment="Right" VerticalAlignment="Center" telerik:StyleManager.Theme="Windows8" BorderThickness="0" Margin="0,2,5,0"
+                                        Command="{Binding ConfirmCommand}">
+                        <Path Data="M1,1 L9,9 M1.0000687,9.0000982 L9.0000687,1.0000986" Stroke="{telerik:Windows8Resource ResourceKey=MarkerBrush}" StrokeThickness="2" Width="10" Height="10" />
+                    </telerik:RadButton>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5">
+                    <TextBlock Text="联网失败，请检查网络链接确定" FontFamily="Nirmala UI" IsEnabled="False"/>
+                </StackPanel>
+                <telerik:RadButton Content="确定" Margin="0,15,0,0" Width="40" telerik:StyleManager.Theme="Windows8" Command="{Binding ConfirmCommand}"></telerik:RadButton>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

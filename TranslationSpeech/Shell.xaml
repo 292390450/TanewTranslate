@@ -1,0 +1,61 @@
+﻿<Window x:Class="TranslationSpeech.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TranslationSpeech"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        mc:Ignorable="d"
+        Title="Shell" Height="200" Width="500"  AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" Background="{x:Null}"
+        RenderOptions.BitmapScalingMode="HighQuality" SnapsToDevicePixels="True" WindowStartupLocation="CenterScreen" Visibility="{Binding ShellVisibility}"
+         Icon="Image/planet_earth_128px_1202602_easyicon.net.ico">
+    
+    <Window.Resources>
+        <Storyboard x:Key="OnLoaded1">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="Border">
+                <EasingThicknessKeyFrame KeyTime="0:0:0.6" Value="0,10"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource OnLoaded1}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    
+
+        <Grid>
+         <Grid Background="LightGray" Opacity="0.5">
+             <Grid.Effect>
+                 <BlurEffect RenderingBias="Performance" Radius="10"></BlurEffect>
+             </Grid.Effect>
+         </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="81*"/>
+                <RowDefinition Height="26*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <TextBlock Text="语音实时多语种翻译，" FontSize="16" FontFamily="Segoe UI Semibold"></TextBlock>
+
+                <TextBlock  Text="好好学习吧!" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" Margin="0,0,5,0"></TextBlock>
+            </StackPanel>
+           <Border Grid.Row="0" Grid.Column="0" Margin="-490,10,0,10" Width="226" x:Name="Border">
+                <Border.Background>
+                    <ImageBrush ImageSource="Image/地球.png" Stretch="Uniform"></ImageBrush>
+                </Border.Background>
+           </Border>
+            <telerik:RadProgressBar Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" VerticalAlignment="Top" IsIndeterminate="True"
+                                    telerik:StyleManager.Theme="Windows8" Margin="0,10"></telerik:RadProgressBar>
+        </Grid>
+        <DockPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,5,2">
+            <TextBlock  Text="Power By Zeng" Foreground="DarkGray" FontFamily="Nirmala UI"></TextBlock>
+        </DockPanel>
+         
+    </Grid>
+       
+</Window>
